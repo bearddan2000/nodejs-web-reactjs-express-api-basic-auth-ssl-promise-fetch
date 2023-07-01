@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+  reactjs-srv:
+    image: bayesimpact/react-base:latest
+    command: /bin/sh -c "npm install && npm start"
+    volumes:
+      -  ./reactjs-srv/bin:/usr/app
+    ports:
+      - 80:3000
+    links:
+      - "api:api"
+      
+  api:
+    image: node:latest
+    volumes:
+      - ./api/bin:/app
+    command: /bin/sh -c "cd /app && npm install && node /app/server.js"
+    ports:
+      - 81:8000
+      - 443:443

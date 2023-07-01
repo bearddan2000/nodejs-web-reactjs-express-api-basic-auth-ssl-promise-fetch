@@ -1,0 +1,16 @@
+.item1 { grid-area: id; }
+.item2 { grid-area: breed; }
+.item3 { grid-area: color; }
+
+.flex-container {
+    display: grid; /* or inline-flex */
+    /*border: 2px seashell;*/
+    grid-template-areas: 'id breed color';
+    gap: 10px;
+    padding: 10px;
+}
+
+.flex-container > div {
+    padding: 20px 10px;
+    background-color: cadetblue;
+}
